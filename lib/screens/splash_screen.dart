@@ -33,7 +33,7 @@ class _SplashScreenState extends State<SplashScreen> {
         //proceed to home
         if (state.isSignedIn) {
           print('logged in');
-          checkIfInitialSetupIsCompleteSignedIn();
+          Navigator.popAndPushNamed(context, '/home');
         } else {
           //not signed in
           print('not logged in');

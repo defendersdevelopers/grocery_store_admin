@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:ecommerce_store_admin/blocs/initial_setup_bloc/initial_setup_bloc.dart';
 import 'package:ecommerce_store_admin/blocs/sign_in_bloc/sign_in_bloc.dart';
 import 'package:ecommerce_store_admin/widgets/dialogs/processing_dialog.dart';
@@ -27,9 +29,11 @@ class _SignInScreenState extends State<SignInScreen> {
   //TODO: check if initial setup is done for the first time and save it in shared prefs
 
   @override
-  void initState() {
+  Future<void> initState() async {
     super.initState();
     inProgress = false;
+
+
 
     signinBloc = BlocProvider.of<SignInBloc>(context);
     initialSetupBloc = BlocProvider.of<InitialSetupBloc>(context);
@@ -57,20 +61,20 @@ class _SignInScreenState extends State<SignInScreen> {
         if (inProgress) {
           firebaseUser = state.firebaseUser;
           signinBloc.add(CheckIfNewAdminEvent(firebaseUser.uid));
-          // Navigator.pop(context);
-          // setState(() {
-          //   inProgress = false;
-          //   showSnack('Signed in successfully!', context);
-          // });
-          // Navigator.popAndPushNamed(context, '/home');
+           Navigator.pop(context);
+           setState(() {
+             inProgress = false;
+             showSnack('Signed in successfully!', context);
+           });
+           Navigator.popAndPushNamed(context, '/home');
         }
       }
-      // if (state is CheckIfNewAdminInProgressState) {
-      //   //in progress
-      //   if (inProgress) {
-      //     showUpdatingDialog();
-      //   }
-      // }
+       if (state is CheckIfNewAdminInProgressState) {
+         //in progress
+         if (inProgress) {
+           showUpdatingDialog();
+         }
+       }
       if (state is CheckIfNewAdminFailedState) {
         //FAILED
         if (inProgress) {
@@ -84,16 +88,16 @@ class _SignInScreenState extends State<SignInScreen> {
       if (state is CheckIfNewAdminCompletedState) {
         //completed
         if (inProgress) {
-          // Navigator.pop(context);
-          // setState(() {
-          //   inProgress = false;
-          //   showSnack('Signed in successfully!', context);
-          // });
+          Navigator.pop(context);
+          setState(() {
+            inProgress = false;
+            showSnack('Signed in successfully!', context);
+          });
 
           //check if initial setup is done or not
           initialSetupBloc.add(CheckIfInitialSetupDoneEvent());
 
-          // Navigator.popAndPushNamed(context, '/home');
+           Navigator.popAndPushNamed(context, '/home');
         }
       }
     });

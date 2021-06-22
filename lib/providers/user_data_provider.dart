@@ -1384,7 +1384,7 @@ class UserDataProvider extends BaseUserDataProvider {
 
       UserCredential auth = await FirebaseAuth.instance
           .createUserWithEmailAndPassword(
-              email: deliveryUserMap['email'], password: password);
+              email: ''+deliveryUserMap['email'], password: ""+password);
 
       if (auth.user != null) {
         await db.collection(Paths.deliveryUsersPath).doc(auth.user.uid).set({

@@ -36,7 +36,7 @@ class AuthenticationProvider extends BaseAuthenticationProvider {
   Future<User> signInWithEmail(String email, String password) async {
     try {
       UserCredential authResult = await firebaseAuth.signInWithEmailAndPassword(
-          email: email, password: password);
+          email: ""+email, password: ""+password);
 
       if (authResult.user != null) {
         return authResult.user;
