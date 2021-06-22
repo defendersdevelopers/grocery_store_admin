@@ -1659,7 +1659,7 @@ class UserDataProvider extends BaseUserDataProvider {
             'transactionId': cancelOrderMap['transactionId'],
           };
           var refundRes = await http.post(
-            'URL_HERE', //TODO: Change this URL //it should look something like : https://us-********-**********.cloudfunctions.net/createStripeRefund
+            'https://us-central1-grocery-aaed1.cloudfunctions.net/createStripeRefund', //TODO: Change this URL //it should look something like : https://us-********-**********.cloudfunctions.net/createStripeRefund
             body: refundMap,
           );
 
@@ -1847,7 +1847,7 @@ class UserDataProvider extends BaseUserDataProvider {
             'transactionId': initiateRefundMap['transactionId'],
           };
           var refundRes = await http.post(
-            'URL_HERE', //TODO: Change this URL //it should look something like : https://us-********-**********.cloudfunctions.net/createStripeRefund
+            'https://us-central1-grocery-aaed1.cloudfunctions.net/createStripeRefund', //TODO: Change this URL //it should look something like : https://us-********-**********.cloudfunctions.net/createStripeRefund
             body: refundMap,
           );
 
@@ -1878,7 +1878,7 @@ class UserDataProvider extends BaseUserDataProvider {
             'paymentId': initiateRefundMap['transactionId'],
           };
           var refundRes = await http.post(
-            'URL_HERE', //TODO: CHANGE this to your url //it should look something like : https://us-********-**********.cloudfunctions.net/initiateRefundForRazorpay
+            'https://us-central1-grocery-aaed1.cloudfunctions.net/initiateRefundForRazorpay', //TODO: CHANGE this to your url //it should look something like : https://us-********-**********.cloudfunctions.net/initiateRefundForRazorpay
             body: refundMap,
           );
 
@@ -1929,7 +1929,7 @@ class UserDataProvider extends BaseUserDataProvider {
       }
 
       //call function
-      Map<dynamic, dynamic> map = {
+      Map<String, dynamic> map = {
         'mobileNo': '${Config().countryMobileNoPrefix}${adminMap['mobileNo']}',
         'name': 'ADMIN_' + Random.secure().nextInt(10000).toString(),
         'url': url,
@@ -1937,7 +1937,7 @@ class UserDataProvider extends BaseUserDataProvider {
         'email': adminMap['email']
       };
       var refundRes = await http.post(
-        'URL_HERE', //TODO: change this URL //it should look something like : https://us-********-**********.cloudfunctions.net/createAdminAccount
+        'https://us-central1-grocery-aaed1.cloudfunctions.net/createAdminAccount', //TODO: change this URL //it should look something like : https://us-********-**********.cloudfunctions.net/createAdminAccount
         body: map,
       );
 

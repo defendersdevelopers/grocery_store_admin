@@ -20,7 +20,7 @@ class Config {
   //TODO: change the url to yours
   //to see your url go to Firebase console -> Functions and check url for "updateAnsweredMessageAnalytics"
   String updateMessagesUrl =
-      'YOUR_URL_HERE'; //it should look something like : https://us-********-**********.cloudfunctions.net/updateAnsweredMessageAnalytics
+      'https://us-central1-grocery-aaed1.cloudfunctions.net/updateAnsweredMessageAnalytics'; //it should look something like : https://us-********-**********.cloudfunctions.net/updateAnsweredMessageAnalytics
 
   List<String> cancelOrderReasons = [
     'Product is not available',

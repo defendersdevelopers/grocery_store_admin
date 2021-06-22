@@ -629,7 +629,7 @@ class _MyAccountPageState extends State<MyAccountPage>
                           child: FlatButton(
                             onPressed: () {
                               //update
-                              updateAccountDetails();
+                              //updateAccountDetails();
                             },
                             color: Theme.of(context).primaryColor,
                             shape: RoundedRectangleBorder(
