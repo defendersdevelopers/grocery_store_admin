@@ -1376,6 +1376,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
                                         (oldVal) => val,
                                         ifAbsent: () => val,
                                       );
+                                      widget.product.inStock = val;
                                     });
                                   },
                                 ),
@@ -1417,6 +1418,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
                                         (oldVal) => val,
                                         ifAbsent: () => val,
                                       );
+                                      widget.product.isListed = val;
                                     });
                                   },
                                 ),
@@ -1458,6 +1460,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
                                         (oldVal) => val,
                                         ifAbsent: () => val,
                                       );
+                                      widget.product.featured = val;
                                     });
                                   },
                                 ),

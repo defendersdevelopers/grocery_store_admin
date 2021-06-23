@@ -504,7 +504,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   });
                 },
                 leading: Icon(
-                  Icons.attach_money_sharp,
+                  FontAwesomeIcons.rupeeSign,
                   size: 23.0,
                   color: _selectedPage == 9
                       ? Theme.of(context).primaryColor

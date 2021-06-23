@@ -355,8 +355,8 @@ class MyApp extends StatelessWidget {
       title: 'Grocery Store Admin',
       theme: ThemeData(
         primarySwatch: Colors.blue,
-        primaryColorDark: Color(0xFF7936ff),
-        primaryColor: Color(0xFF8b50ff),
+        primaryColorDark: Color(0xFFCD0152),
+        primaryColor: Color(0xFFF21170),
         accentColor: Colors.pink,
         backgroundColor: Colors.white,
         canvasColor: Colors.white,

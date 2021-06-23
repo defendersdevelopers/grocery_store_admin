@@ -70,7 +70,7 @@ class _AddCategoryScreenState extends State<AddCategoryScreen> {
         ],
         aspectRatio: CropAspectRatio(ratioX: 1, ratioY: 1),
         cropStyle: CropStyle.rectangle,
-        compressFormat: ImageCompressFormat.jpg,
+        compressFormat: ImageCompressFormat.png,
         maxHeight: 400,
         maxWidth: 400,
         compressQuality: 50,

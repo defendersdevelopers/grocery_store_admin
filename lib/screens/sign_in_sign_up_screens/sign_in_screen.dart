@@ -29,8 +29,12 @@ class _SignInScreenState extends State<SignInScreen> {
   //TODO: check if initial setup is done for the first time and save it in shared prefs
 
   @override
-  Future<void> initState() async {
+  void initState() {
     super.initState();
+    doSomeAsyncStuff();
+
+  }
+  Future<void> doSomeAsyncStuff() async {
     inProgress = false;
 
 
@@ -61,20 +65,20 @@ class _SignInScreenState extends State<SignInScreen> {
         if (inProgress) {
           firebaseUser = state.firebaseUser;
           signinBloc.add(CheckIfNewAdminEvent(firebaseUser.uid));
-           Navigator.pop(context);
-           setState(() {
-             inProgress = false;
-             showSnack('Signed in successfully!', context);
-           });
-           Navigator.popAndPushNamed(context, '/home');
+          Navigator.pop(context);
+          setState(() {
+            inProgress = false;
+            showSnack('Signed in successfully!', context);
+          });
+          Navigator.popAndPushNamed(context, '/home');
         }
       }
-       if (state is CheckIfNewAdminInProgressState) {
-         //in progress
-         if (inProgress) {
-           showUpdatingDialog();
-         }
-       }
+      if (state is CheckIfNewAdminInProgressState) {
+        //in progress
+        if (inProgress) {
+          showUpdatingDialog();
+        }
+      }
       if (state is CheckIfNewAdminFailedState) {
         //FAILED
         if (inProgress) {
@@ -97,7 +101,7 @@ class _SignInScreenState extends State<SignInScreen> {
           //check if initial setup is done or not
           initialSetupBloc.add(CheckIfInitialSetupDoneEvent());
 
-           Navigator.popAndPushNamed(context, '/home');
+          Navigator.popAndPushNamed(context, '/home');
         }
       }
     });

@@ -6,12 +6,14 @@ import 'package:ecommerce_store_admin/config/config.dart';
 import 'package:ecommerce_store_admin/widgets/dialogs/processing_dialog.dart';
 import 'package:ecommerce_store_admin/widgets/dialogs/product_added_dialog.dart';
 import 'package:flushbar/flushbar.dart';
+import 'package:ecommerce_store_admin/models/delivery_user.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:ecommerce_store_admin/models/delivery_user.dart';
 import 'package:uuid/uuid.dart';
 
 class AddDeliveryUserScreen extends StatefulWidget {
@@ -25,7 +27,7 @@ class _AddDeliveryUserScreenState extends State<AddDeliveryUserScreen> {
   var image;
   var selectedImage;
   AddNewDeliveryUserBloc addNewDeliveryUserBloc;
-  bool isAdding;
+  bool isAdding,activated=false;
   @override
   void initState() {
     super.initState();
@@ -566,7 +568,7 @@ class _AddDeliveryUserScreenState extends State<AddDeliveryUserScreen> {
                             height: 30.0,
                             valueFontSize: 14.0,
                             toggleSize: 15.0,
-                            value: false,
+                            value: activated,
                             activeColor: Theme.of(context).primaryColor,
                             inactiveColor: Colors.black38,
                             borderRadius: 15.0,
@@ -579,12 +581,14 @@ class _AddDeliveryUserScreenState extends State<AddDeliveryUserScreen> {
                                     (val) => true,
                                     ifAbsent: () => true,
                                   );
+                                  activated = val;
                                 } else {
                                   deliveryUser.update(
                                     'activated',
                                     (val) => false,
                                     ifAbsent: () => false,
                                   );
+                                  activated = val;
                                 }
                               });
                             },

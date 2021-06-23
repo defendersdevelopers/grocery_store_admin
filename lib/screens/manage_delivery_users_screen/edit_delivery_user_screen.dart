@@ -592,12 +592,14 @@ class _EditDeliveryUserScreenState extends State<EditDeliveryUserScreen> {
                                       (val) => true,
                                       ifAbsent: () => true,
                                     );
+                                    widget.deliveryUser.activated = val;
                                   } else {
                                     deliveryUser.update(
                                       'activated',
                                       (val) => false,
                                       ifAbsent: () => false,
                                     );
+                                    widget.deliveryUser.activated = val;
                                   }
                                 });
                               },

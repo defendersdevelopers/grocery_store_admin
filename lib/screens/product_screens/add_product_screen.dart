@@ -1122,13 +1122,14 @@ class _AddProductScreenState extends State<AddProductScreen> {
                                   height: 30.0,
                                   valueFontSize: 14.0,
                                   toggleSize: 15.0,
-                                  value: false,
+                                  value: inStock,
                                   activeColor: Theme.of(context).primaryColor,
                                   inactiveColor: Colors.black38,
                                   borderRadius: 15.0,
                                   padding: 8.0,
                                   onToggle: (val) {
                                     setState(() {
+                                      inStock = val;
                                       product.putIfAbsent('inStock', () => val);
                                     });
                                   },
@@ -1159,13 +1160,14 @@ class _AddProductScreenState extends State<AddProductScreen> {
                                   height: 30.0,
                                   valueFontSize: 14.0,
                                   toggleSize: 15.0,
-                                  value: false,
+                                  value: isListed,
                                   activeColor: Theme.of(context).primaryColor,
                                   inactiveColor: Colors.black38,
                                   borderRadius: 15.0,
                                   padding: 8.0,
                                   onToggle: (val) {
                                     setState(() {
+                                      isListed = val;
                                       product.putIfAbsent(
                                           'isListed', () => val);
                                     });
@@ -1197,13 +1199,14 @@ class _AddProductScreenState extends State<AddProductScreen> {
                                   height: 30.0,
                                   valueFontSize: 14.0,
                                   toggleSize: 15.0,
-                                  value: false,
+                                  value: isFeatured,
                                   activeColor: Theme.of(context).primaryColor,
                                   inactiveColor: Colors.black38,
                                   borderRadius: 15.0,
                                   padding: 8.0,
                                   onToggle: (val) {
                                     setState(() {
+                                      isFeatured = val;
                                       product.putIfAbsent(
                                           'featured', () => val);
                                     });

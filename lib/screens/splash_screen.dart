@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:ecommerce_store_admin/blocs/sign_in_bloc/sign_in_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -33,18 +35,25 @@ class _SplashScreenState extends State<SplashScreen> {
         //proceed to home
         if (state.isSignedIn) {
           print('logged in');
-          Navigator.popAndPushNamed(context, '/home');
+          Timer(Duration(milliseconds: 4000),(){
+            Navigator.popAndPushNamed(context, '/home');
+          });
         } else {
           //not signed in
           print('not logged in');
-          Navigator.popAndPushNamed(context, '/sign_in');
+          Timer(Duration(milliseconds: 4000),(){
+            Navigator.popAndPushNamed(context, '/sign_in');
+          });
+
         }
       }
 
       if (state is CheckIfSignedInEventFailedState) {
         //proceed to sign in
         print('failed to check if logged in');
-        Navigator.popAndPushNamed(context, '/sign_in');
+        Timer(Duration(milliseconds: 4000),(){
+          Navigator.popAndPushNamed(context, '/sign_in');
+        });
       }
     });
 
@@ -57,14 +66,22 @@ class _SplashScreenState extends State<SplashScreen> {
 
     if (isSetupCompleted == null) {
       //not done
-      Navigator.popAndPushNamed(context, '/initial_setup');
+      Timer(Duration(milliseconds: 4000),(){
+        Navigator.popAndPushNamed(context, '/initial_setup');
+      });
     } else {
       if (isSetupCompleted) {
         //done
-        Navigator.popAndPushNamed(context, '/home');
+        Timer(Duration(milliseconds: 4000),(){
+          Navigator.popAndPushNamed(context, '/home');
+        });
+
       } else {
         //not done
-        Navigator.popAndPushNamed(context, '/initial_setup');
+        Timer(Duration(milliseconds: 4000),(){
+          Navigator.popAndPushNamed(context, '/initial_setup');
+        });
+
       }
     }
   }
@@ -78,28 +95,8 @@ class _SplashScreenState extends State<SplashScreen> {
 
     return Scaffold(
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SvgPicture.asset(
-              'assets/icons/shop.svg',
-              width: size.width * 0.25,
-              height: size.width * 0.25,
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            Text(
-              'Grocery Store Admin',
-              style: GoogleFonts.poppins(
-                color: Colors.black.withOpacity(0.85),
-                fontSize: 14.0,
-                fontWeight: FontWeight.w600,
-                letterSpacing: 0.5,
-              ),
-            ),
-          ],
+        child: Image.asset(
+          'assets/icons/logo.png',
         ),
       ),
     );
