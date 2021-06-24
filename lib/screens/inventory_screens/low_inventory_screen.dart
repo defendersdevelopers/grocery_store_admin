@@ -139,7 +139,7 @@ class _LowInventoryScreenState extends State<LowInventoryScreen>
                     mainAxisSize: MainAxisSize.max,
                     children: <Widget>[
                       SvgPicture.asset(
-                        'assets/banners/retry.svg',
+                        'assets/banners/retr.svg',
                         width: size.width * 0.6,
                       ),
                       SizedBox(

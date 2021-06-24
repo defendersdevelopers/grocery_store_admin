@@ -352,7 +352,7 @@ class MyApp extends StatelessWidget {
     ));
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Grocery Store Admin',
+      title: 'Desi Yum Admin',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         primaryColorDark: Color(0xFFCD0152),
